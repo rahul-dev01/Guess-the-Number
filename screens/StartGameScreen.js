@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import PrimaryButton from '../Components/PrimaryButton';
 import Title from '../Components/Title';
 
-const StartGameScreen = () => {
+const StartGameScreen = ({Step, setStep, userNumber, setUserNumber}) => {
   return (
     <View >
       <Title child="Guess the Number" />
@@ -12,20 +12,34 @@ const StartGameScreen = () => {
 
           <TextInput
             style={styles.input}
-            keyboardType="number-pad"
             maxLength={2}
             placeholderTextColor="red"
+            keyboardType="number-pad"
+            onChangeText={(text) => setUserNumber(Number(text))}
           />
 
           <View style={styles.buttonRow}>
-            <PrimaryButton name="Reset" />
-            <PrimaryButton name="Confirm" />
+            <PrimaryButton
+              onPressFunction={() => {
+               setUserNumber(null)
+              }}
+              name="Reset" />
+            <PrimaryButton
+              onPressFunction={() => {
+              
+                if (userNumber == null) {
+                  return;
+                } else {
+                  setStep(2);
+                }
+              }}
+              name="Confirm" />
           </View>
         </View>
       </View>
     </View>
   );
-}; 
+};
 
 export default StartGameScreen;
 
@@ -53,7 +67,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
     marginBottom: 30,
-    marginHorizontal: 20, 
+    marginHorizontal: 20,
     fontSize: 28,
     color: '#fff',
     fontWeight: 'bold',

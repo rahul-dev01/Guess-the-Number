@@ -1,13 +1,17 @@
 
-import { Text, View ,StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
 
-const Title = ({child}) => {
-    return (
-        <View>
-            <Text style={styles.title}>{child}</Text>
-        </View>
-    )
+const Title = ({ child , }) => {
+  return (
+    <View >
+      <View>
+        <Text style={styles.title}>{child}</Text>
+      </View>
+    </View>
+
+
+  )
 }
 export default Title
 
@@ -15,7 +19,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
     marginBottom: 30,
-    marginHorizontal: 20, 
+    marginHorizontal: 20,
     fontSize: 28,
     color: '#fff',
     fontWeight: 'bold',

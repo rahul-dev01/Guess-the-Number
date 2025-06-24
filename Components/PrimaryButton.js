@@ -1,9 +1,18 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-const PrimaryButton = ({ name }) => {
+const PrimaryButton = ({ name , onPressFunction}) => {
     return (
-        <Pressable style={styles.button}>
+        <Pressable
+            onPress={() => {
+                onPressFunction();
+            }}
+            android_ripple={{ color: "white" }}
+            style={({ pressed }) =>
+                pressed ? [styles.buttonStyle, styles.pressed] : styles.button
+            }
+
+            >
             <Text style={styles.buttonText}>{name}</Text>
         </Pressable>
     );

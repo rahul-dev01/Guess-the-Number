@@ -8,18 +8,17 @@ import GameOverScreen from './screens/GameOverScreen';
 export default function App() {
 
   const [Step, setStep] = useState(1)
+  const [userNumber, setUserNumber] = useState(null);
 
   return (
     <LinearGradient
       colors={['#ff9a9e', '#fad0c4', '#fad0c4']}
-
-
       style={styles.background} >
       <SafeAreaView style={styles.safeArea}>
 
-        {Step == 1 && <StartGameScreen  />}
-        {Step == 2 && <GuessScreen />}
-        {Step == 3 && <GameOverScreen />}
+        {Step == 1 && <StartGameScreen Step={Step} setStep={setStep} userNumber={userNumber} setUserNumber={setUserNumber} />}
+        {Step == 2 && <GuessScreen setStep={setStep} userNumber={userNumber} />}
+        {Step == 3 && <GameOverScreen userNumber={userNumber} setStep={setStep} setUserNumber={setUserNumber} />}
 
 
       </SafeAreaView>
