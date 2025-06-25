@@ -3,25 +3,27 @@ import Title from '../Components/Title'
 import PrimaryButton from '../Components/PrimaryButton'
 import { useEffect, useState } from 'react';
 
-const GuessScree = ({ setStep , userNumber }) => {
+const GuessScreen = ({ setStep, userNumber }) => {
 
+
+  console.log(`userNumber --> ${userNumber}`)
 
   const [minValue, setminValue] = useState(1)
   const [maxValue, setmaxValue] = useState(99)
   const [guess, setguess] = useState(minValue)
 
   function getRandomNumber() {
-    return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue 
+    return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   }
 
-   useEffect(() => {
+
+  useEffect(() => {
     setguess(getRandomNumber());
   }, [minValue, maxValue]);
 
-
   return (
     <View >
-      <Title child="Guess Screen" />
+      <Title child="Opponent's Guess" />
       <View style={styles.screen}>
         <View style={styles.inputContainer}>
           <Text style={styles.input}>{guess} </Text>
@@ -31,6 +33,7 @@ const GuessScree = ({ setStep , userNumber }) => {
               onPressFunction={() => {
                 if (userNumber < guess) {
                   setmaxValue(guess);
+                  console.log(`---> lower ${guess}`)
                 } else if (userNumber == guess) {
                   setStep(3);
                 } else {
@@ -38,20 +41,22 @@ const GuessScree = ({ setStep , userNumber }) => {
                 }
               }}
 
-              name="Lower"
-            />
+              name="Lower"  >
+            </PrimaryButton>
 
             <PrimaryButton
               onPressFunction={() => {
                 if (userNumber > guess) {
                   setminValue(guess);
-                } else if (userNumber == guess) {
+                  console.log(`---> higher ${guess}`)
+                } else if (userNumber === guess) {
                   setStep(3);
                 } else {
                   Alert.alert("Dont lie");
                 }
               }}
-              name="Higher" />
+              name="Higher"  >
+            </PrimaryButton>
           </View>
         </View>
       </View>
@@ -59,7 +64,7 @@ const GuessScree = ({ setStep , userNumber }) => {
   )
 }
 
-export default GuessScree
+export default GuessScreen
 
 
 

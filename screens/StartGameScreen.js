@@ -5,7 +5,7 @@ import Title from '../Components/Title';
 const StartGameScreen = ({Step, setStep, userNumber, setUserNumber}) => {
   return (
     <View >
-      <Title child="Guess the Number" />
+      <Title child="Guess the Number"/>
       <View style={styles.screen}>
 
         <View style={styles.inputContainer}>
@@ -24,6 +24,7 @@ const StartGameScreen = ({Step, setStep, userNumber, setUserNumber}) => {
                setUserNumber(null)
               }}
               name="Reset" />
+
             <PrimaryButton
               onPressFunction={() => {
               
@@ -84,9 +85,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
 
-
-
-
   input: {
     width: '12%',
     borderBottomWidth: 2,
@@ -103,4 +101,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-

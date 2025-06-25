@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import Title from '../Components/Title'
 import PrimaryButton from '../Components/PrimaryButton'
 
-const GameOverScreen = ({ userNumber, setStep  , setUserNumber}) => {
+const GameOverScreen = ({ userNumber, setStep, setUserNumber }) => {
     return (
         <View style={{ flex: 1 }}>
             <View>
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
         gap: 20
     },
     congratsText: {
-        fontSize: 40, 
+        fontSize: 40,
         fontWeight: '800',
-        color: '#4CAF50', 
+        color: '#4CAF50',
     },
     winText: {
         fontSize: 30,
@@ -67,12 +67,11 @@ const styles = StyleSheet.create({
     numberText: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: '#3F51B5', 
+        color: '#3F51B5',
     },
     buttonRow: {
         flexDirection: 'row',
         width: '100%',
-        marginTop: 30,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
     },
 });
